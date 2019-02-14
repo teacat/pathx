@@ -6,11 +6,11 @@ import (
 	"strings"
 )
 
-// seperator 是本地系統路徑符號。
-var seperator = string(os.PathSeparator)
+// separator 是本地系統路徑符號。
+var separator = string(os.PathSeparator)
 
-// doubleSeperator 是雙重本地系統路徑符號。
-var doubleSeperator = seperator + seperator
+// doubleSeparator 是雙重本地系統路徑符號。
+var doubleSeparator = separator + separator
 
 // toLocalPath 會將傳入的路徑轉換成本地系統路徑符號。
 func toLocalPath(path string) string {
@@ -20,14 +20,14 @@ func toLocalPath(path string) string {
 // Path 能夠移除單個路徑中多餘的符號，並且確保結尾沒有目錄符號。
 func Path(path string) string {
 	path = toLocalPath(path)
-	path = strings.Replace(path, doubleSeperator, seperator, -1)
-	path = strings.TrimSuffix(path, seperator)
+	path = strings.Replace(path, doubleSeparator, separator, -1)
+	path = strings.TrimSuffix(path, separator)
 	return path
 }
 
 // PathDir 能夠移除單個路徑中多餘的符號，並且確保結尾有目錄符號。
 func PathDir(path string) string {
-	return Path(path) + seperator
+	return Path(path) + separator
 }
 
 // Join 會將多個路徑彙整成一個。
