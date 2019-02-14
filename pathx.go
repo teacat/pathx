@@ -20,7 +20,7 @@ func toLocalPath(path string) string {
 // Path 能夠移除單個路徑中多餘的符號，並且確保結尾沒有目錄符號。
 func Path(path string) string {
 	path = toLocalPath(path)
-	path = strings.Replace(path, doubleSeparator, separator, -1)
+	path = filepath.Clean(path)
 	path = strings.TrimSuffix(path, separator)
 	return path
 }
@@ -34,7 +34,7 @@ func PathDir(path string) string {
 func Join(paths ...string) string {
 	var path string
 	for _, v := range paths {
-		path += v
+		path += v + "/"
 	}
 	return Path(path)
 }
@@ -67,6 +67,15 @@ func Executable() string {
 		panic(err)
 	}
 	return e
+}
+
+// ExecutableDir 能夠取得執行檔案父資料夾的路徑位置。
+func ExecutableDir() string {
+	e, err := os.Executable()
+	if err != nil {
+		panic(err)
+	}
+	return filepath.Dir(e)
 }
 
 // Getwd 能夠取得目前的目錄路徑。
