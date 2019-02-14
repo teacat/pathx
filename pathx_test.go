@@ -13,7 +13,7 @@ func TestPath(t *testing.T) {
 	path := "a/b/c/d"
 	assert.Equal(fmt.Sprintf("a%sb%sc%sd", separator, separator, separator), Path(path))
 	path = "a/b/c/d/"
-	assert.Equal(fmt.Sprintf("a%sb%sc%sd%s", separator, separator, separator, separator), Path(path))
+	assert.Equal(fmt.Sprintf("a%sb%sc%sd", separator, separator, separator), Path(path))
 }
 
 func TestPathDir(t *testing.T) {
