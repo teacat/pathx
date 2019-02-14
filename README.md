@@ -1,26 +1,15 @@
+# Pathx [![GoDoc](https://godoc.org/github.com/teacat/pathx?status.svg)](https://godoc.org/github.com/teacat/pathx) [![Coverage Status](https://coveralls.io/repos/github/teacat/pathx/badge.svg?branch=master)](https://coveralls.io/github/teacat/pathx?branch=master) [![Build Status](https://travis-ci.org/teacat/pathx.svg?branch=master)](https://travis-ci.org/teacat/pathx) [![Go Report Card](https://goreportcard.com/badge/github.com/teacat/pathx)](https://goreportcard.com/report/github.com/teacat/pathx)
 
+路徑輔助套件。
 
-dir := "foo/bar"
-dir2 := hello/world/"
+## 這是什麼？
 
-pathx.Join(dir, dir2) // foo/bar/hello/world
-pathx.JoinDir(dir, dir2) // foo/bar/hello/world/
+Pathx 是用以處理與路徑相關的 Golang 套件，多數功能基於原生的 `path/filepath` 套件。
 
-file := "my/dir/main.go"
+## 安裝方式
 
-pathx.Name(file) // main
-pathx.Ext(file)  // go
+打開終端機並且透過 `go get` 安裝此套件即可。
 
-wtf := "foo/bar/hello/foo/bar/world"
-pathx.Merge() // foo/bar/hello/world
-
+```bash
+$ go get github.com/teacat/pathx
 ```
-a := "foo/bar/world"
-pathx.Contains("/bar/world/")
-```
-
-pathx.Current()
-
-pathx.Current(pathx.Join("a", "b"))
-
-pathx.CurrentDir
