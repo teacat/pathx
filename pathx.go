@@ -86,3 +86,11 @@ func Getwd() string {
 	}
 	return dir
 }
+
+// Exists 會回傳一個指定路徑是否存在。
+func Exists(path string) bool {
+	if _, err := os.Stat(toLocalPath(path)); !os.IsNotExist(err) {
+		return true
+	}
+	return false
+}

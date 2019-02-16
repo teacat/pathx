@@ -81,3 +81,9 @@ func TestGetwd(t *testing.T) {
 	e, _ := os.Getwd()
 	assert.Equal(e, Getwd())
 }
+
+func TestExists(t *testing.T) {
+	assert := assert.New(t)
+	assert.False(Exists("/does/not/exists"))
+	assert.True(Exists("./"))
+}
