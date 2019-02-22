@@ -34,6 +34,9 @@ func PathDir(path string) string {
 func Join(paths ...string) string {
 	var path string
 	for _, v := range paths {
+		if v == "" {
+			continue
+		}
 		path += v + "/"
 	}
 	return Path(path)
