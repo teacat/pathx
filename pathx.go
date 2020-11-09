@@ -37,7 +37,7 @@ func Join(paths ...string) string {
 		if v == "" {
 			continue
 		}
-		path += v + "/"
+		path += v + separator
 	}
 	return Path(path)
 }
